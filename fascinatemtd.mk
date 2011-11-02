@@ -152,6 +152,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
        wifi.interface=eth0 \
        wifi.supplicant_scan_interval=20 \
+       dalvik.vm.dexopt-data-only=1 \
        dalvik.vm.heapsize=32m
 
 # enable Google-specific location features,
