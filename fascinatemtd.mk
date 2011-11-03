@@ -187,7 +187,8 @@ else
 endif
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
+    $(LOCAL_KERNEL):kernel \
+    device/samsung/fascinatemtd/recovery.bin:recovery.bin
 
 PRODUCT_COPY_FILES += \
     device/samsung/aries-common/updater_cdma.sh:updater.sh
