@@ -100,7 +100,8 @@ PRODUCT_PACKAGES += \
 
 # Device-specific packages
 PRODUCT_PACKAGES += \
-	AriesParts
+	AriesParts \
+	tvouthack
 
 # apns config file
 PRODUCT_COPY_FILES += \
