@@ -144,12 +144,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.opengles.version=131072
 
-# Verizon cdma stuff
+# Generic CDMA stuff
 PRODUCT_PROPERTY_OVERRIDES += \
        ro.telephony.default_network=4 \
        ro.ril.def.agps.mode=2 \
-       ro.cdma.home.operator.numeric=310004 \
-       ro.cdma.home.operator.alpha=Verizon \
        ro.cdma.homesystem=64,65,76,77,78,79,80,81,82,83 \
        ro.cdma.data_retry_config=default_randomization=2000,0,0,120000,180000,540000,960000 \
        ro.cdma.otaspnumschema=SELC,3,00,07,80,87,88,99 \
@@ -157,7 +155,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
        ro.telephony.call_ring.multiple=false \
        ro.telephony.call_ring.delay=3000 \
        net.cdma.pppd.authtype=require-chap \
-       net.cdma.pppd.user=user[SPACE]VerizonWireless \
        net.cdma.datalinkinterface=/dev/ttyCDMA0 \
        net.cdma.ppp.interface=ppp0 \
        net.connectivity.type=CDMA1 \
@@ -209,8 +206,3 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
-# See comment at the top of this file. This is where the other
-# half of the device-specific product definition file takes care
-# of the aspects that require proprietary drivers that aren't
-# commonly available
-$(call inherit-product-if-exists, vendor/samsung/fascinatemtd/fascinatemtd-vendor.mk)

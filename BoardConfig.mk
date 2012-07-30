@@ -121,5 +121,3 @@ BOARD_CUSTOM_BOOTIMG_MK := device/samsung/fascinatemtd/shbootimg.mk
 
 # SkTextBox for libtvout
 BOARD_USES_SKTEXTBOX := true
-
-TARGET_OTA_ASSERT_DEVICE := aries,fascinate,fascinatemtd,SCH-I500

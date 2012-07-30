@@ -1,4 +1,4 @@
-ifeq ($(TARGET_DEVICE),fascinatemtd)
+ifneq ($(filter fascinatemtd mesmerizemtd showcasemtd, $(TARGET_DEVICE)),)
 
 LOCAL_PATH:= $(call my-dir)
 
