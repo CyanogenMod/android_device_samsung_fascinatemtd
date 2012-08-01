@@ -64,6 +64,7 @@ USE_CAMERA_STUB := false
 ifeq ($(USE_CAMERA_STUB),false)
 BOARD_CAMERA_LIBRARIES := libcamera
 endif
+BOARD_CAMERA_HAVE_FLASH := true
 
 TARGET_PROVIDES_LIBAUDIO := true
 
