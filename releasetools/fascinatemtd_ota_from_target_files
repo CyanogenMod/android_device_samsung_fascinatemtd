@@ -38,6 +38,7 @@ __doc__ = ota_from_target_files.__doc__
 
 def CopyBootFiles(input_zip, output_zip):
     output_zip.write(os.path.join(TARGET_DIR, "boot.img"),"boot.img")
+    output_zip.write(os.path.join(TARGET_DIR, "recovery_kernel"),"recovery_kernel")
 
 def CopyBMLoverMTD(output_zip):
   """Copy the bml_over_mtd utility and script to the output."""

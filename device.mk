@@ -202,5 +202,9 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_COPY_FILES += \
     device/samsung/aries-common/updater.sh:updater.sh
 
+# decoy recovery kernel
+PRODUCT_COPY_FILES += \
+    device/samsung/fascinatemtd/recovery_kernel:recovery_kernel
+
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
