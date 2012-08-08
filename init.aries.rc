@@ -260,12 +260,12 @@ service pppd_cdma /system/bin/pppd_runner
     oneshot
 
 service orientationd /system/vendor/bin/orientationd
-    class late_start
+    class main
     user compass
     group system input
 
 service geomagneticd /system/vendor/bin/geomagneticd
-    class late_start
+    class main
     user compass
     group system input
 
