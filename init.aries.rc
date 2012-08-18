@@ -40,7 +40,8 @@ on property:ril.cdma.data_state=0
   stop pppd_cdma
 
 on fs
-    mount ext4 /dev/block/mmcblk0p1 /data wait nosuid nodev noatime nodiratime noauto_da_alloc
+    mount ext4 /dev/block/mmcblk0p1 /system ro noatime nodev nomblk_io_submit errors=panic wait
+    mount ext4 /dev/block/mmcblk0p2 /cache noatime nodev nosuid nomblk_io_submit errors=panic wait
 
 # permissions for bluetooth.
     chown bluetooth bluetooth /dev/s3c2410_serial0

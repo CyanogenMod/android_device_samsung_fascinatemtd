@@ -3,9 +3,9 @@
 /recovery	mtd		recovery
 /boot		mtd		boot
 
-/system		yaffs2		system
-/cache		yaffs2		cache
+/system		ext4		/dev/block/mmcblk0p1
+/cache		ext4		/dev/block/mmcblk0p2
 
 /sdcard		vfat		/dev/block/mmcblk1p1
-/data		ext4		/dev/block/mmcblk0p1  length=-16384
+/data		yaffs2		userdata
 
