@@ -69,6 +69,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/samsung/fascinatemtd/gpsfix:system/bin/gpsfix
 
+# bt
+PRODUCT_COPY_FILES += \
+	device/samsung/fascinatemtd/set-macaddr:system/bin/set-macaddr
+
 # Generated kcm keymaps
 PRODUCT_PACKAGES := \
        cypress-touchkey.kcm \

@@ -286,3 +286,13 @@ service tvout /system/bin/tvoutserver
     user root
     group root
 
+# set device specific MAC addresses, depends on preceding start of rild
+service set-macaddr /system/bin/set-macaddr
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1
+    start set-macaddr
+
