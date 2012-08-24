@@ -80,6 +80,10 @@ PRODUCT_PACKAGES += \
 	setup_fs \
 	bml_over_mtd
 
+# BT MAC fix
+PRODUCT_PACKAGES += \
+	bdaddr_read-cdma
+
 # Usb accessory
 PRODUCT_PACKAGES += \
 	com.android.future.usb.accessory

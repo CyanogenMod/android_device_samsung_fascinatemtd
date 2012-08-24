@@ -32,12 +32,17 @@ on boot
 # phone
     setprop ro.telephony.call_ring.multiple 0
 	
+# set BT MAC address
+    setprop ro.bt.bdaddr_path /data/.bdaddr
 
 on property:ril.cdma.data_state=1
   restart pppd_cdma
   
 on property:ril.cdma.data_state=0
   stop pppd_cdma
+
+on property:ril.bt_macaddr=*
+  start bdaddr
 
 on fs
     mount ext4 /dev/block/mmcblk0p1 /system ro noatime nodev nomblk_io_submit errors=panic wait
@@ -279,6 +284,12 @@ service gpsfix /system/bin/gpsfix
     class main
     user root
     group root
+    oneshot
+
+service bdaddr /system/bin/bdaddr_read-cdma
+    class main
+    user root
+    disabled
     oneshot
 
 service tvout /system/bin/tvoutserver
