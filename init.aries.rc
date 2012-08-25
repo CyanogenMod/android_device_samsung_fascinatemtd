@@ -140,9 +140,6 @@ on post-fs
 
 on post-fs-data
 
-    # run sysinit
-    exec /system/bin/sysinit
-
 # create data/gps for GPS demon
     mkdir /data/gps 771 gps system
     chown gps system /data/gps
