@@ -266,14 +266,8 @@ service geomagneticd /system/vendor/bin/geomagneticd
 
 service gpsd /system/vendor/bin/gpsd
     class main
-    user gps
+    user system
     group system inet
-
-service gpsfix /system/bin/gpsfix
-    class main
-    user root
-    group root
-    oneshot
 
 service bdaddr /system/bin/bdaddr_read-cdma
     class main

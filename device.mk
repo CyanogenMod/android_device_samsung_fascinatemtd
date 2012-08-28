@@ -64,10 +64,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/samsung/fascinatemtd/ip-up:system/etc/ppp/ip-up
 
-# gps
-PRODUCT_COPY_FILES += \
-	device/samsung/fascinatemtd/gpsfix:system/bin/gpsfix
-
 # Generated kcm keymaps
 PRODUCT_PACKAGES := \
        cypress-touchkey.kcm \

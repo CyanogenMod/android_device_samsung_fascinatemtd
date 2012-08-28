@@ -1,8 +1,0 @@
-#!/system/bin/sh
-# secgpsd.socket is created with improper permissions
-# wait a few seconds after gpsd is started and manually
-# fix it
-# TODO: FIXITBETTER!!!11!
-sleep 5
-chmod 660 /data/gps/secgpsd.socket
-exit 0
