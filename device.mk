@@ -187,7 +187,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # enable repeatable keys in cwm
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.cwm.enable_key_repeat=true
+    ro.cwm.enable_key_repeat=true \
+    ro.cwm.repeatable_keys=102,114,115,139
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
