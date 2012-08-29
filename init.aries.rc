@@ -45,6 +45,9 @@ on property:ril.bt_macaddr=*
   start bdaddr
 
 on fs
+    # We don't support encryption on yaffs
+    setprop ro.crypto.state unsupported
+
     mount ext4 /dev/block/mmcblk0p1 /system ro noatime nodev nomblk_io_submit errors=panic wait
     mount ext4 /dev/block/mmcblk0p2 /cache noatime nodev nosuid nomblk_io_submit errors=panic wait
 
