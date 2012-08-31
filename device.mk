@@ -118,7 +118,8 @@ PRODUCT_PACKAGES += \
 
 # Device-specific packages
 PRODUCT_PACKAGES += \
-	AriesParts
+	AriesParts \
+	Torch
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
