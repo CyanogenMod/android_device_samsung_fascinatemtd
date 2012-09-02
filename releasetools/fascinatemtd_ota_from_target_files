@@ -47,7 +47,7 @@ def CopyBMLoverMTD(output_zip):
   output_zip.write(os.path.join(UTILITIES_DIR, "flash_image"),"flash_image")
   output_zip.write(os.path.join(UTILITIES_DIR, "erase_image"),"erase_image")
   output_zip.write(os.path.join(UTILITIES_DIR, "bml_over_mtd"),"bml_over_mtd")
-  output_zip.write(os.path.join(LOCAL_DIR, "bml_over_mtd.sh"),"bml_over_mtd.sh")
+  output_zip.write(os.path.join(TARGET_DIR, "bml_over_mtd.sh"),"bml_over_mtd.sh")
   output_zip.write(os.path.join(TARGET_DIR, "updater.sh"),"updater.sh")
 
 def WriteFullOTAPackage(input_zip, output_zip):
@@ -113,7 +113,7 @@ ota_from_target_files.WriteFullOTAPackage = WriteFullOTAPackage
 
 
 def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip):
-    print "Incremental OTA Packages are not support on the Samsung Galaxy S at this time"
+    print "Incremental OTA Packages are not supported on the Samsung Fascinate at this time"
     sys.exit(1)
 ota_from_target_files.WriteIncrementalOTAPackage = WriteIncrementalOTAPackage
 
