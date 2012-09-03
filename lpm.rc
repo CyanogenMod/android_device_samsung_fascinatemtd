@@ -97,7 +97,7 @@ on fs
 # mount mtd partitions
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
     #mount yaffs2 mtd@system /system
-    mount ext4 /dev/block/mmcblk0p1 /system noatime nodev nomblk_io_submit wait errors=panic
+    #mount ext4 /dev/block/mmcblk0p1 /system noatime nodev nomblk_io_submit wait errors=panic
     #mount yaffs2 mtd@cache /cache
     #mount ext4 /dev/block/mmcblk0p2 /data nosuid nodev noatime nodiratime noauto_da_alloc
     #mount yaffs2 mtd@datadata /datadata
@@ -263,13 +263,7 @@ service console /sbin/sh
 on property:ro.secure=0
     start console
 
-service playlpm /system/bin/playlpm
-    user root
-    oneshot
-
-service lpmkey /system/bin/charging_mode
-    user root
-    oneshot
+service battery_charger /charger
 
 # adbd is controlled by the persist.service.adb.enable system property
 service adbd /sbin/adbd
