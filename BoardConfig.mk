@@ -55,6 +55,7 @@ USE_OPENGL_RENDERER := true
 # would hurt performance significantly (see b/6016711)
 TARGET_DISABLE_TRIPLE_BUFFERING := false
 BOARD_ALLOW_EGL_HIBERNATION := true
+BOARD_CUSTOM_VSYNC_IOCTL := true
 
 # skia
 BOARD_USE_SKIA_LCDTEXT := true
