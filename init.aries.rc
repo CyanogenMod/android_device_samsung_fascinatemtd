@@ -12,6 +12,8 @@ on init
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard0 /mnt/sdcard
 
+    mkdir /datadata 0771 system system
+
 on boot
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
@@ -44,8 +46,14 @@ on fs
     # We don't support encryption on yaffs
     setprop ro.crypto.state unsupported
 
-    mount ext4 /dev/block/mmcblk0p1 /system ro noatime nodev nomblk_io_submit errors=panic wait
+# LVM: set up LVM volumes
+    exec /lvm/sbin/lvm vgscan --mknodes --ignorelockingfailure
+    exec /lvm/sbin/lvm vgchange -aly --ignorelockingfailure
+
+    mount ext4 /dev/lvpool/system /system ro
+    mount ext4 /dev/lvpool/userdata /data noatime nodev nosuid nomblk_io_submit errors=panic wait
     mount ext4 /dev/block/mmcblk0p2 /cache noatime nodev nosuid nomblk_io_submit errors=panic wait
+    mount yaffs2 mtd@datadata /datadata
 
 # permissions for bluetooth.
     chown bluetooth bluetooth /dev/s3c2410_serial0
@@ -61,7 +69,12 @@ on fs
     chown radio radio /sys/class/sec/uart_switch/UART_SEL/value
     chmod 660 /sys/class/sec/uart_switch/UART_SEL/value
 
+    symlink /datadata /data/data
+
 on post-fs
+
+    chown system system /datadata
+    chmod 0771 /datadata
 
 # for sensor control
     chown root input /sys/class/input/input0/enable
