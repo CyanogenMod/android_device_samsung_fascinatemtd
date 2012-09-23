@@ -12,6 +12,12 @@ on init
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard0 /mnt/sdcard
 
+    mkdir /datadata 0771 system system
+
+    # We will create our own ril-daemon service in class 'core' because the
+    # rild doesn't like being killed. (During device encryption.)
+    stop ril-daemon
+
 on boot
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
@@ -32,20 +38,22 @@ on boot
     setprop ro.bt.bdaddr_path /data/.bdaddr
 
 on property:ril.cdma.data_state=1
-  restart pppd_cdma
+    restart pppd_cdma
   
 on property:ril.cdma.data_state=0
-  stop pppd_cdma
+    stop pppd_cdma
 
 on property:ril.bt_macaddr=*
-  start bdaddr
+    start bdaddr
 
 on fs
-    # We don't support encryption on yaffs
-    setprop ro.crypto.state unsupported
+# LVM: set up LVM volumes
+    exec /lvm/sbin/lvm vgscan --mknodes --ignorelockingfailure
+    exec /lvm/sbin/lvm vgchange -aly --ignorelockingfailure
 
-    mount ext4 /dev/block/mmcblk0p1 /system ro noatime nodev nomblk_io_submit errors=panic wait
-    mount ext4 /dev/block/mmcblk0p2 /cache noatime nodev nosuid nomblk_io_submit errors=panic wait
+    mount ext4 /dev/block/mmcblk0p3 /cache noatime nodev nosuid nomblk_io_submit errors=panic wait
+    mount yaffs2 mtd@datadata /datadata
+    mount_all fstab.aries
 
 # permissions for bluetooth.
     chown bluetooth bluetooth /dev/s3c2410_serial0
@@ -62,6 +70,9 @@ on fs
     chmod 660 /sys/class/sec/uart_switch/UART_SEL/value
 
 on post-fs
+
+    chown system system /datadata
+    chmod 0771 /datadata
 
 # for sensor control
     chown root input /sys/class/input/input0/enable
@@ -138,6 +149,11 @@ on post-fs
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
 
 on post-fs-data
+    # for migrating download provider's cache out of the small /data/data
+    mkdir /data/data2 0771 system system
+
+    # setup datadata
+    exec /sbin/setupdatadata.sh
 
 # create data/gps for GPS demon
     mkdir /data/gps 771 gps system
@@ -154,6 +170,13 @@ on post-fs-data
     mkdir /data/download 0770 system cache
 
     setprop vold.post_fs_data_done 1
+
+service aries-ril-daemon /system/bin/rild
+    class core
+    socket rild stream 660 root radio
+    socket rild-debug stream 660 radio system
+    user root
+    group radio cache inet misc audio sdcard_rw log
 
 # 3D init
 service pvrsrvinit /system/vendor/bin/pvrsrvinit
