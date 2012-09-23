@@ -191,6 +191,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=20
 
+# keep dalvik on /data partition
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dexopt-data-only=1
+
 # enable repeatable keys in cwm
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.enable_key_repeat=true \
