@@ -43,8 +43,7 @@
 PRODUCT_COPY_FILES := \
 	device/samsung/fascinatemtd/vold.fstab:system/etc/vold.fstab \
 	device/samsung/aries-common/egl.cfg:system/lib/egl/egl.cfg \
-	device/samsung/aries-common/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc \
-	device/samsung/aries-common/main.conf:system/etc/bluetooth/main.conf
+	device/samsung/aries-common/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc
 
 # Init files
 PRODUCT_COPY_FILES += \
@@ -166,7 +165,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
        net.interfaces.defaultroute=cdma \
        mobiledata.interfaces=ppp0 \
        ro.ril.samsung_cdma=true \
-       ro.telephony.ril_class=SamsungRIL \
+       ro.telephony.ril_class=SamsungExynos3RIL \
        ro.telephony.ril.v3=datacall
 
 # These are the hardware-specific settings that are stored in system properties.

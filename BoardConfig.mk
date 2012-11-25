@@ -27,6 +27,7 @@ BOARD_USES_LIBSECRIL_STUB := true
 
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
@@ -72,6 +73,8 @@ TARGET_PROVIDES_LIBAUDIO := true
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/fascinatemtd/bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := device/samsung/aries-common/libbt_vndcfg.txt
 
 # Video Devices
 BOARD_V4L2_DEVICE := /dev/video1
