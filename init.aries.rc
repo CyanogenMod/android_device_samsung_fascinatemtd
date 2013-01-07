@@ -34,7 +34,7 @@ on boot
     setprop ro.telephony.call_ring.multiple 0
 	
 # set BT MAC address
-    setprop ro.bt.bdaddr_path /data/.bdaddr
+    setprop ro.bt.bdaddr_path /data/bdaddr
 
 on property:ril.cdma.data_state=1
     restart pppd_cdma
@@ -240,7 +240,7 @@ service gpsd /system/vendor/bin/gpsd
     user system
     group system inet
 
-service bdaddr /system/bin/bdaddr_read-cdma
+service bdaddr /system/bin/bdaddr_read
     class main
     user root
     disabled
