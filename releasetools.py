@@ -30,6 +30,7 @@ def FullOTA_Assertions(info):
   info.output_zip.write(os.path.join(UTILITIES_DIR, "erase_image"), "erase_image")
   info.output_zip.write(os.path.join(UTILITIES_DIR, "bml_over_mtd"), "bml_over_mtd")
   info.output_zip.write(os.path.join(TARGET_DIR, "bml_over_mtd.sh"), "bml_over_mtd.sh")
+  info.output_zip.write(os.path.join(TARGET_DIR, "recovery_kernel"), "recovery_kernel")
 
   info.script.AppendExtra(
         ('package_extract_file("updater.sh", "/tmp/updater.sh");\n'
