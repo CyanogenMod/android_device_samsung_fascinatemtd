@@ -22,7 +22,6 @@ on boot
 
     setprop ro.build.product aries
     setprop ro.product.device aries
-    setprop ro.radio.noril yes
 
 # fake some battery state
     setprop status.battery.state Slow
@@ -30,9 +29,6 @@ on boot
     setprop status.battery.level_raw  50
     setprop status.battery.level_scale 9
 
-# phone
-    setprop ro.telephony.call_ring.multiple 0
-	
 # set BT MAC address
     setprop ro.bt.bdaddr_path /data/bdaddr
 
