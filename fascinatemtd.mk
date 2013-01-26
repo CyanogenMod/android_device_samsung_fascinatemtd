@@ -46,9 +46,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
        net.cdma.pppd.user=user[SPACE]VerizonWireless
 
 TARGET_OTA_ASSERT_DEVICE := aries,fascinate,fascinatemtd,SCH-I500
-
-# See comment at the top of this file. This is where the other
-# half of the device-specific product definition file takes care
-# of the aspects that require proprietary drivers that aren't
-# commonly available
-$(call inherit-product-if-exists, vendor/samsung/fascinatemtd/fascinatemtd-vendor.mk)

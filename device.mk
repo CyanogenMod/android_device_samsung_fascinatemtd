@@ -214,3 +214,8 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
+# See comment at the top of this file. This is where the other
+# half of the device-specific product definition file takes care
+# of the aspects that require proprietary drivers that aren't
+# commonly available
+$(call inherit-product-if-exists, vendor/samsung/fascinatemtd/fascinatemtd-vendor.mk)
