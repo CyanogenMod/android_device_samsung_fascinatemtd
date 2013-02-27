@@ -49,6 +49,7 @@ PRODUCT_COPY_FILES := \
 PRODUCT_COPY_FILES += \
 	device/samsung/fascinatemtd/init.aries.rc:root/init.aries.rc \
 	device/samsung/aries-common/init.aries.usb.rc:root/init.aries.usb.rc \
+	device/samsung/aries-common/init.recovery.aries.rc:root/init.recovery.aries.rc \
 	device/samsung/aries-common/init.aries.usb.rc:recovery/root/usb.rc \
 	device/samsung/aries-common/lpm.rc:root/lpm.rc \
 	device/samsung/fascinatemtd/ueventd.aries.rc:root/ueventd.aries.rc \
