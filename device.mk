@@ -123,6 +123,10 @@ PRODUCT_PACKAGES += \
 	AriesParts \
 	Torch
 
+# SMS alerts
+PRODUCT_PACKAGES += \
+	CellBroadcastReceiver
+
 # Charger
 PRODUCT_PACKAGES += \
 	charger \

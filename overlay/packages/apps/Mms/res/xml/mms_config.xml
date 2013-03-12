@@ -5,10 +5,6 @@
 	<int name="mmsHeaderSize">5120</int>
 	<int name="maxImageHeight">1920</int>
 	<int name="maxImageWidth">2560</int>
-	<int name="defaultSMSMessagesPerThread">200</int>
-	<int name="defaultMMSMessagesPerThread">20</int>
-	<int name="minMessageCountPerThread">10</int>
-	<int name="maxMessageCountPerThread">5000</int>
 	<string name="uaProfUrl">http://wap.samsungmobile.com/uaprof/GT-i9000.xml</string>
 	<string name="userAgent">SAMSUNG-SCH-I500-Mms/2.0</string>
 	<int name="recipientLimit">20</int>
@@ -19,6 +15,8 @@
 	<int name="aliasMaxChars">72</int>
 	<string name="httpParams">X-VzW-MDN: ##LINE1##</string>
 	<string	name="httpParamsLine1Key">##LINE1##</string>
-	<bool name="enableSplitSMS">true</bool>
-	<bool name="enableMultipartSMS">false</bool>
+	<bool name="enableMultipartSMS">true</bool>
+	<int name="smsToMmsTextThreshold">7</int>
+	<bool name="allowAttachAudio">false</bool>
+	<bool name="enableMMSReadReports">false</bool>
 </mms_config>
