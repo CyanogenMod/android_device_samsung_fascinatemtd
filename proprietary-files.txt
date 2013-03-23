@@ -23,7 +23,6 @@ vendor/firmware/samsung_mfc_fw.bin
 
 ## gfx
 vendor/bin/pvrsrvinit
-lib/egl/libGLES_android.so
 vendor/lib/egl/libEGL_POWERVR_SGX540_120.so
 vendor/lib/egl/libGLESv1_CM_POWERVR_SGX540_120.so
 vendor/lib/egl/libGLESv2_POWERVR_SGX540_120.so
