@@ -41,11 +41,6 @@ on property:ril.cdma.data_state=0
 on property:ril.bt_macaddr=*
     start bdaddr
 
-on property:gsm.sim.state=NOT_READY
-    # this is a CDMA device with no SIM card, and this property must be set
-    # to READY for the data usage tracker to work properly
-    setprop gsm.sim.state READY
-
 on fs
 # LVM: set up LVM volumes
     exec /lvm/sbin/lvm vgscan --mknodes --ignorelockingfailure
