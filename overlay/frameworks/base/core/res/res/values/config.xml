@@ -52,7 +52,4 @@
         config to 7. -->	
 	<integer name="config_deviceHardwareKeys">15</integer>
 
-    <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
-    <bool name="config_cellBroadcastAppLinks">true</bool>
-
 </resources>
