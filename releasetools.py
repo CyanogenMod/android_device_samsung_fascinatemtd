@@ -17,7 +17,6 @@
 
 import common
 import os
-import shutil
 
 TARGET_DIR = os.getenv('OUT')
 UTILITIES_DIR = os.path.join(TARGET_DIR, 'utilities')
@@ -57,13 +56,6 @@ def FullOTA_Assertions(info):
   info.script.AppendExtra('package_extract_file("boot.img", "/tmp/boot.img");')
   info.script.AppendExtra('package_extract_file("recovery_kernel", "/tmp/recovery_kernel");')
   info.script.AppendExtra('assert(run_program("/tmp/updater.sh", "cdma") == 0);')
-
-  # Make common releasetools copy boot.img verbatim
-  kernel_path = os.path.join(info.input_tmp, "BOOT", "kernel")
-  prebuilt_dir = os.path.join(info.input_tmp, "BOOTABLE_IMAGES")
-  prebuilt_path = os.path.join(prebuilt_dir, "boot.img")
-  os.mkdir(prebuilt_dir)
-  shutil.copyfile(kernel_path, prebuilt_path)
 
 
 def FullOTA_InstallEnd(info):
