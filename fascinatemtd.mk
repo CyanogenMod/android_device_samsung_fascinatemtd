@@ -34,8 +34,7 @@
 # and is used by people who have access to binary versions of the drivers
 # but not to the original vendor tree. Be sure to update both.
 
-DEVICE_PACKAGE_OVERLAYS := device/samsung/fascinatemtd/overlay \
-	device/samsung/aries-common/overlay
+DEVICE_PACKAGE_OVERLAYS := device/samsung/fascinatemtd/overlay
 
 $(call inherit-product, device/samsung/fascinatemtd/device.mk)
 

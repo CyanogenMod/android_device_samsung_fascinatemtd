@@ -46,7 +46,7 @@ on fs
     exec /lvm/sbin/lvm vgscan --mknodes --ignorelockingfailure
     exec /lvm/sbin/lvm vgchange -aly --ignorelockingfailure
 
-    mount ext4 /dev/block/mmcblk0p3 /cache noatime nodev nosuid nomblk_io_submit errors=panic wait
+    #mount ext4 /dev/block/mmcblk0p3 /cache noatime nodev nosuid nomblk_io_submit errors=panic wait
     mount yaffs2 mtd@datadata /datadata
     mount_all fstab.aries
 
