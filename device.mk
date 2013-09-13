@@ -227,4 +227,4 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329
 # half of the device-specific product definition file takes care
 # of the aspects that require proprietary drivers that aren't
 # commonly available
-$(call inherit-product-if-exists, vendor/samsung/fascinatemtd/fascinatemtd-vendor.mk)
+$(call inherit-product, vendor/samsung/fascinatemtd/fascinatemtd-vendor.mk)
