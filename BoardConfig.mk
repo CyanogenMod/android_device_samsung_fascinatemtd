@@ -17,139 +17,32 @@
 # Product-specific compile-time definitions.
 #
 
-# Set this up here so that BoardVendorConfig.mk can override it
-BOARD_USES_GENERIC_AUDIO := false
-
-BOARD_USES_LIBSECRIL_STUB := true
-
 # Use the non-open-source parts, if they're present
 -include vendor/samsung/fascinatemtd/BoardConfigVendor.mk
 
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_ARCH_VARIANT_CPU := cortex-a8
-TARGET_CPU_VARIANT := cortex-a8
-
-# Dalvik startup with low memory footprint
-TARGET_ARCH_LOWMEM := true
-
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
-
-TARGET_PROVIDES_INIT := true
-TARGET_BOARD_PLATFORM := s5pc110
-TARGET_BOOTLOADER_BOARD_NAME := aries
+# inherit from aries-common
+-include device/samsung/aries-common/BoardConfigCommon.mk
 
 BOARD_MOBILEDATA_INTERFACE_NAME := "ppp0"
-BOARD_UMS_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun/file
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/fascinatemtd
 
-# Hardware rendering
-USE_OPENGL_RENDERER := true
-
-# TARGET_DISABLE_TRIPLE_BUFFERING can be used to disable triple buffering
-# on per target basis. On crespo it is possible to do so in theory
-# to save memory, however, there are currently some limitations in the
-# OpenGL ES driver that in conjunction with disable triple-buffering
-# would hurt performance significantly (see b/6016711)
-TARGET_DISABLE_TRIPLE_BUFFERING := false
-BOARD_ALLOW_EGL_HIBERNATION := true
-BOARD_CUSTOM_VSYNC_IOCTL := true
-
-# skia
-BOARD_USE_SKIA_LCDTEXT := true
-
 # Camera
-USE_CAMERA_STUB := false
-ifeq ($(USE_CAMERA_STUB),false)
-BOARD_CAMERA_LIBRARIES := libcamera
-endif
 BOARD_CAMERA_HAVE_FLASH := true
 
+# Audio
 TARGET_PROVIDES_LIBAUDIO := true
 
 # Bluetooth
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/fascinatemtd/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := device/samsung/aries-common/libbt_vndcfg.txt
-
-# Video Devices
-BOARD_V4L2_DEVICE := /dev/video1
-BOARD_CAMERA_DEVICE := /dev/video0
-
-BOARD_NAND_PAGE_SIZE := 4096
-BOARD_NAND_SPARE_SIZE := 128
-BOARD_KERNEL_BASE := 0x32000000
-BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_CMDLINE := console=ttyFIQ0,115200 init=/init no_console_suspend
 
 # Kernel Config
-TARGET_KERNEL_SOURCE := kernel/samsung/aries
 TARGET_KERNEL_CONFIG := cyanogenmod_fascinatemtd_defconfig
 
-BOARD_BOOTIMAGE_PARTITION_SIZE := 7864320
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 262144000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1665130496
-BOARD_FLASH_BLOCK_SIZE := 4096
-
-# Connectivity - Wi-Fi
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-WPA_SUPPLICANT_VERSION      := VER_0_8_X
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_HOSTAPD_DRIVER        := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_bcmdhd
-BOARD_WLAN_DEVICE           := bcmdhd
-BOARD_WLAN_DEVICE_REV       := bcm4329
-WIFI_DRIVER_MODULE_NAME     := "bcmdhd"
-WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd/parameters/firmware_path"
-WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcmdhd.bin"
-WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcmdhd_apsta.bin"
-
-# Bootanimation
-TARGET_BOOTANIMATION_PRELOAD := true
-TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-TARGET_BOOTANIMATION_USE_RGB565 := true
 
 # Recovery
-TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/aries-common/recovery/graphics.c
-BOARD_USES_BML_OVER_MTD := true
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/fascinatemtd/shbootimg.mk
 TARGET_RECOVERY_PRE_COMMAND := "echo 1 > /cache/.startrecovery; sync;"
 TARGET_RECOVERY_FSTAB := device/samsung/fascinatemtd/fstab.aries
-RECOVERY_FSTAB_VERSION := 2
-
-# Charging mode
-BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/charging_mode_booting
-# Suspend in charger to disable capacitive keys
-BOARD_CHARGER_ENABLE_SUSPEND := true
-
-# SkTextBox for libtvout
-BOARD_USES_SKTEXTBOX := true
-
-# Hardware tunables
-BOARD_HARDWARE_CLASS := device/samsung/aries-common/cmhw/
-
-# SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/samsung/aries-common/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    bdaddr_read.te \
-    device.te \
-    domain.te \
-    file_contexts \
-    geomagneticd.te \
-    mediaserver.te \
-    orientationd.te \
-    property_contexts \
-    pvrsrvinit.te \
-    rild.te \
-    tvouthack.te \
-    tvoutserver.te
