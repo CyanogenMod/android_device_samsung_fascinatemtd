@@ -39,25 +39,26 @@
 # of hardware-specific resource overrides, typically the frameworks and
 # application settings that are stored in resourced.
 
-VARIANT_MODEL := SCH-I500
-
-# Init files
+# ramdisk files
 PRODUCT_COPY_FILES += \
 	device/samsung/fascinatemtd/init.aries.rc:root/init.aries.rc \
 	device/samsung/fascinatemtd/fstab.aries:root/fstab.aries \
+
+# hak
+PRODUCT_COPY_FILES += \
 	device/samsung/aries-common/bml_over_mtd.sh:bml_over_mtd.sh
 
 # ppp
 PRODUCT_COPY_FILES += \
 	device/samsung/fascinatemtd/ip-up:system/etc/ppp/ip-up
 
+# audio
 PRODUCT_COPY_FILES += \
 	device/samsung/fascinatemtd/libaudio/audio_policy.conf:system/etc/audio_policy.conf
 
 # Device-specific packages
 PRODUCT_PACKAGES += \
 	Torch
-
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \

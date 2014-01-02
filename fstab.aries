@@ -12,6 +12,7 @@ datadata                    /datadata           yaffs2      defaults            
 /dev/lvpool/userdata       /data                 ext4      noatime,nodev,nosuid,nomblk_io_submit,errors=panic   wait,encryptable=footer,length=-16384
 
 # cache
-/dev/block/mmcblk0p3        /cache              ext4        noatime,nodev,nosuid,nomblk_io_submit,errors=panic  wait
+/dev/block/mmcblk0p3       /cache                ext4      noatime,nodev,nosuid,nomblk_io_submit,errors=panic   wait
 
-/devices/platform/s3c-sdhci.2/mmc_host/mmc2 /storage/sdcard0 auto defaults voldmanaged=sdcard0:auto
+# sdcard
+/devices/platform/s3c-sdhci.2/mmc_host/mmc2 auto auto defaults voldmanaged=sdcard0:auto
