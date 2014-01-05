@@ -48,6 +48,7 @@ on fs
     #mount ext4 /dev/block/mmcblk0p3 /cache noatime nodev nosuid nomblk_io_submit errors=panic wait
     mount yaffs2 mtd@datadata /datadata
     mount_all fstab.aries
+    swapon_all fstab.aries
 
 # permissions for bluetooth.
     chown bluetooth net_bt_stack /dev/s3c2410_serial0
