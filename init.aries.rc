@@ -44,6 +44,8 @@ on fs
 # LVM: set up LVM volumes
     exec /lvm/sbin/lvm vgscan --mknodes --ignorelockingfailure
     exec /lvm/sbin/lvm vgchange -aly --ignorelockingfailure
+    restorecon /dev/mapper/lvpool-system
+    restorecon /dev/mapper/lvpool-userdata
 
     #mount ext4 /dev/block/mmcblk0p3 /cache noatime nodev nosuid nomblk_io_submit errors=panic wait
     mount yaffs2 mtd@datadata /datadata
