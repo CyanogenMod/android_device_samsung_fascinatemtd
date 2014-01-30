@@ -92,4 +92,4 @@ $(call inherit-product, device/samsung/aries-common/device_base.mk)
 # half of the device-specific product definition file takes care
 # of the aspects that require proprietary drivers that aren't
 # commonly available
-$(call inherit-product, vendor/samsung/fascinatemtd/fascinatemtd-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/fascinatemtd/fascinatemtd-vendor.mk)
